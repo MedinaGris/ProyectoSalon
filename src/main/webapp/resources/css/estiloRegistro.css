@@ -1,0 +1,111 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 5/05/2022, 09:29:56 AM
+    Author     : Medina
+*/
+
+@import url("https://fonts.googleapis.com/css2?family=Oswald&display=swap");
+:root {
+  --blue: #3697f2;
+  --darkgray: #222;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Oswald", sans-serif;
+}
+body {
+  background-color: #000;
+  color: #fff;
+}
+.hidden {
+  display: none;
+}
+.fadeout {
+  animation: 500ms fadeout 1;
+}
+.fadein {
+  animation: 500ms fadein 1;
+}
+main {
+  text-align: center;
+  width: 50%;
+  margin: 10vh auto;
+  padding: 1em;
+  border: 1px solid var(--darkgray);
+  border-radius: 10px;
+}
+input:not([type="checkbox"]) {
+  display: block;
+  margin: 10px auto;
+  border: 0;
+  outline: 0;
+  border-bottom: 1px solid var(--darkgray);
+  caret-color: var(--blue);
+  background-color: transparent;
+  width: 50%;
+  padding: 2px 5px;
+  color: #fff;
+}
+small {
+  display: none;
+  margin: 0 auto;
+  text-align: start;
+  width: 50%;
+  color: #ff0000;
+}
+a,
+a:visited {
+  border: 1px solid var(--darkgray);
+  border-radius: 10px;
+  color: var(--blue);
+  padding: 5px 8px;
+  text-decoration: none;
+  transition: all 400ms;
+  display: block;
+  width: 100px;
+  margin: 10px auto;
+}
+a:hover,
+a:visited:hover {
+  background-color: #fff;
+  color: #222;
+}
+#buttons {
+  margin: 20px auto;
+  width: 50%;
+  text-align: start;
+}
+#buttons button {
+  cursor: pointer;
+  background-color: transparent;
+  border: 0;
+  color: #444;
+}
+#buttons .active {
+  color: var(--blue);
+  border-bottom: 1px solid var(--blue);
+  animation: 2s fadein 1;
+}
+
+@keyframes fadein {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fadeout {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}

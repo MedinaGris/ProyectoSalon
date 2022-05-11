@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <main>
+  <div id="register-form">
+    <h1>Welcome, please register</h1>
+    <form>
+      <input id="email-r" type="email" placeholder="Email" />
+      <small id="warning-emailempty">Email field is empty</small>
+      <input id="username-r" type="text" placeholder="Username" />
+      <small id="warning-usernameempty">Username is empty</small>
+      <input id="password-r" type="password" placeholder="Password" />
+      <small id="warning-passlength">Passwords must be 8 digits in length</small>
+      <input id="password-repeat-r" type="password" placeholder="Repeat Password" />
+      <small id="warning-passmatch">Passwords must match</small>
+      <input type="checkbox" onclick="showPass()" /> Show password
+      <a id="reg-btn" onclick="register()" href="#">Register</a>
+    </form>
+  </div>
+  <div id="login-form" class="hidden">
+    <h1>Welcome back, please login</h1>
+    <form>
+      <input id="username-l" type="text" placeholder="Username" />
+      <input id="password-l" type="password" placeholder="Password" />
+      <input type="checkbox" onclick="showPassLogin()" /> Show password
+      <a onclick="login()" href="#">Login</a>
+    </form>
+  </div>
+  <div id="buttons">
+    <button onclick="changeForm(this)" class="active">Register</button>
+    <button onclick="changeForm(this)" style="margin-left: 20px">Login</button>
+  </div>
+</main>
+    </body>
+</html>
