@@ -1,9 +1,18 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!--
+/**
+ *
+ * @author Griselda Medina Avendaño
+ * Creado: 9 Mayo 2022
+ * Actualizado: 11 Mayo 20211
+ */
+-->
+ 
 <!DOCTYPE html>
 <html>
     <head>
-        <title>TODO supply a title</title>
+        <title>Inicia sesión</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="Stylesheet" href="resources/css/estiloRegistro.css">

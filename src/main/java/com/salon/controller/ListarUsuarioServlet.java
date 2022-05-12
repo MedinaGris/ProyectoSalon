@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package com.salon.controller;
 
 import com.salon.entity.UsuarioJPA;
@@ -19,7 +15,9 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Medina
+ * @author Griselda Medina Avendaño
+ * Creado: 9 Mayo 2022
+ * Actualizado: 11 Mayo 20211
  */
 public class ListarUsuarioServlet extends HttpServlet {
 
@@ -52,8 +50,6 @@ public class ListarUsuarioServlet extends HttpServlet {
   
                 
                 UsuarioService service= new UsuarioServiceImplement();
-
-                //UsuarioJPA usuario= new UsuarioJPA(id,nombre,email,telefono,contraseña);//=service.login(email, contraseña);
                  List<UsuarioJPA> usuariosList= service.obtenerRegistros();
                 if(usuariosList!=null&&usuariosList.size()>0) {
 				

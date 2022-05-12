@@ -2,13 +2,16 @@
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
+/**
+ *
+ * @author Griselda Medina Avendaño
+ * Creado: 9 Mayo 2022
+ * Actualizado: 11 Mayo 20211
+ */
 -->
 <html>
     <head>
-        <title>TODO supply a title</title>
+        <title>Registro de usuarios</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="Stylesheet" href="resources/css/estiloRegistro.css">

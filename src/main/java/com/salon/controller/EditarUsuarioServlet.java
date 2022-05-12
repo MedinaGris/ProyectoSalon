@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package com.salon.controller;
 
 import com.salon.entity.UsuarioJPA;
@@ -10,6 +6,7 @@ import com.salon.service.UsuarioService;
 import com.salon.service.UsuarioServiceImplement;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -18,7 +15,9 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Medina
+ * @author Griselda Medina Avendaño
+ * Creado: 9 Mayo 2022
+ * Actualizado: 11 Mayo 20211
  */
 public class EditarUsuarioServlet extends HttpServlet {
 
@@ -33,26 +32,21 @@ public class EditarUsuarioServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
                         int id=Integer.parseInt(request.getParameter("idUsuario"));
-                String nombre = request.getParameter("nombreUsuario");
-                String email = request.getParameter("email");
-		String contraseña=request.getParameter("password");
-                String telefono = request.getParameter("telefono");
-                
-                
+               
                 UsuarioService service= new UsuarioServiceImplement();
-
-                UsuarioJPA usuario= new UsuarioJPA(id,nombre,email,telefono,contraseña);//=service.login(email, contraseña);
-                boolean login= service.actualizarRegistro(usuario);
-                if(login) {
+              UsuarioJPA usuario= service.obtenerRegistro(id);
+                              if(usuario!=null) {
 				
-				request.setAttribute("usuario",login);			
-				RequestDispatcher rd= request.getRequestDispatcher("/registrados.jsp");
+				request.setAttribute("usuario",usuario);			
+				RequestDispatcher rd= request.getRequestDispatcher("/editar.jsp");
 				rd.forward(request,response);				
 			}else	{
 				request.setAttribute("error","error!");	
-				RequestDispatcher rd= request.getRequestDispatcher("/editar.jsp");
+				RequestDispatcher rd= request.getRequestDispatcher("/login.jsp");
 				rd.forward(request,response);
 			}
+              
+
     }
 
     /**
@@ -66,14 +60,31 @@ public class EditarUsuarioServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+             int id=Integer.parseInt(request.getParameter("idUsuario"));
+                String nombre = request.getParameter("nombreUsuario");
+                String email = request.getParameter("email");
+		String contraseña=request.getParameter("password");
+                String telefono = request.getParameter("telefono");
+                
+                
+                UsuarioService service= new UsuarioServiceImplement();
+
+                UsuarioJPA usuario= new UsuarioJPA(id,nombre,email,telefono,contraseña);//=service.login(email, contraseña);
+                boolean editar= service.actualizarRegistro(usuario);
+                
+                if(editar) {
+                                List <UsuarioJPA> lista=service.obtenerRegistros();
+                                request.setAttribute("usuarios",lista);
+				RequestDispatcher rd= request.getRequestDispatcher("/registrados.jsp");
+				rd.forward(request,response);				
+			}else	{
+				request.setAttribute("error","error!");	
+				RequestDispatcher rd= request.getRequestDispatcher("/editar.jsp");
+				rd.forward(request,response);
+			}
     }
 
-    /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-     */
+
     @Override
     public String getServletInfo() {
         return "Short description";

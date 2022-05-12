@@ -22,6 +22,7 @@ public class UsuarioServiceImplement implements UsuarioService{
     public UsuarioJPA crearRegistro(UsuarioJPA usuario) {
         try {
             usuarioJPA.createUsuario(usuario);
+            //usuarioJPA.desconectar();
             return usuario;
             
         } catch (Exception ex) {
@@ -35,6 +36,8 @@ public class UsuarioServiceImplement implements UsuarioService{
         boolean resp=false;
         try {
             usuarioJPA.editUsuario(usuario);
+            //usuarioJPA.desconectar();
+
             resp= true;
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
@@ -44,12 +47,18 @@ public class UsuarioServiceImplement implements UsuarioService{
 
     @Override
     public List<UsuarioJPA> obtenerRegistros() {
-        return usuarioJPA.listarUsuarios();
+        List<UsuarioJPA> lista=usuarioJPA.listarUsuarios();
+       // usuarioJPA.desconectar();
+        return lista; 
+                    
+
     }
 
     @Override
     public UsuarioJPA obtenerRegistro(int idUsuario) {
-        return usuarioJPA.findUsuarioJPA(idUsuario);
+        UsuarioJPA usuario=usuarioJPA.findUsuarioJPA(idUsuario);
+        usuarioJPA.desconectar();
+        return usuario;
     }
 
     @Override
@@ -57,6 +66,8 @@ public class UsuarioServiceImplement implements UsuarioService{
         boolean resp=false;
         try {
             usuarioJPA.deleteUsuario(idUsuario);
+            //usuarioJPA.desconectar();
+
             resp=true;
         } catch (NonexistentEntityException ex) {
             System.out.println(ex.getMessage());
@@ -69,6 +80,8 @@ public class UsuarioServiceImplement implements UsuarioService{
         UsuarioJPA resp=null;
         try {
              resp=usuarioJPA.login(email, contraseña);
+             //usuarioJPA.desconectar();
+
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
         }

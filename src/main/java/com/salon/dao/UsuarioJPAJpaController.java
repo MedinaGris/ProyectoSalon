@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package com.salon.dao;
 
 import com.salon.dao.exceptions.NonexistentEntityException;
@@ -20,7 +16,9 @@ import javax.persistence.criteria.Root;
 
 /**
  *
- * @author Medina
+ * @author Griselda Medina Avendaño
+ * Creado: 9 Mayo 2022
+ * Actualizado: 
  */
 public class UsuarioJPAJpaController implements Serializable {
 private EntityManagerFactory emf = null;
@@ -123,6 +121,7 @@ private EntityManagerFactory emf = null;
     }
 
     public UsuarioJPA findUsuarioJPA(int id) {
+        
         EntityManager em = getEntityManager();
         try {
             return em.find(UsuarioJPA.class, id);
